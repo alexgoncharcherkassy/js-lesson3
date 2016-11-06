@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+<a href="index.html">Back</a>
+<p id="ex3"></p>
+</body>
+<script>
+    var testArr = [1, 3, 0, 5, 2, 7];
+    var ex3 = document.getElementById('ex3');
+    Array.prototype.mySort = function () {
+        var len = this.length;
+
+        for (var i = (len - 1); i >= 0; i--) {
+            for (var j = 1; j <= i; j++) {
+                if (this[j - 1] > this[j]) {
+                    var temp = this[j - 1];
+                    this[j - 1] = this[j];
+                    this[j] = temp;
+                }
+            }
+        }
+
+        return this;
+    };
+
+    testArr.mySort();
+    ex3.innerHTML = 'Sort start array: ' + testArr.join(', ');
+</script>
+</html>
